@@ -105,4 +105,4 @@ ES6 introduces many enhancements to JavaScript. In particular, ES6 introduces:
 
 A nice summary of ES6 features is available [here](https://zellwk.com/blog/es6/).
 
-After this introduction, you're ready to practice JS and ES6 with the [JS and ES6 koans](https://github.com/rrobbes/EngineeringOfMobileSystems/tree/master/lab1-jskoans)
+After this introduction, you're ready to practice JS and ES6 with the [JS and ES6 koans](https://github.com/rrobbes/EngineeringOfMobileSystems/tree/master/lab1-jskoans).

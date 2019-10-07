@@ -38,8 +38,26 @@ Historically, incompatibilities between different implementations of Javascript 
 
 Due to its history, Javascript has some strange behavior. 
 
-### Prototypes
-Since it is influenced by Self, Javascript is a prototype-based OO language. Prototype-based OO languages don't have classes. Instead, a "prototype" can be cloned in order to create a new object similar to the previous one. The new object can then be modified to add new behaviour. While a prototype-based system can emulate classes (and vice-versa), it's not very convenient. In ES6, it is also possible to create classes.
+
+
+### Primitives
+
+Javascript has a handful of primitive types, which do not have associated methods.
+- undefined: for just declared variables with no value, or argument that don't have values 
+- null: an initialized variable, with an intentionally non-existent value
+- boolean: true or false
+- string: a sequence of characters
+- number: a double-precision 64 bit floating point number. No specific type for integer (`2` is a number).
+- bigint: an arbitrary large integer. `2n` is `2` as a bigint.
+- symbol: a unique and immutable value, usable as a key for objects
+
+### Objects and Prototypes
+Since it is influenced by Self, Javascript is a prototype-based OO language. Prototype-based OO languages don't have classes. Instead, a "prototype" can be cloned in order to create a new object similar to the previous one. The new object can then be modified to add new behaviour, by (even dynamically) adding new properties. While a prototype-based system can emulate classes (and vice-versa), it's not very convenient. In ES6, it is also possible to create classes.
+
+Object in Javascript are collections of properties, each with a key and a value. Since JS objects can have new properties, they can be used as hashmaps. ES6 also supports dedicated Maps, which have better performance. Objects can be declared in the following manner: `{key: 'value', key2: 32, key3: {nestedObject: {moreNesting: 'enoughNesting'}}}`.
+
+Arrays are Objects that support integer-based indexing. They can be declared like so: `[1, 2, 3]`.
+
 
 ### Type conversions
 Javascript is dynamically typed, and is very "forgiving" of mistakes. This makes sense in the context of short programs being written by non-programmers. But for larger programs, it makes it very easy to introduce bugs. In particular, Javascript implicitly converts objects of different types so that they are compatible with each other. But the results are not always (or often) as one would expect. Try to guess the results of these expressions:
@@ -57,3 +75,34 @@ For a fun take on this, have a look at the [wat video](https://www.destroyallsof
 
 Due to the implicit type conversions, in Javascript, a lot of things can evalaute to "true" or "false", which is convenient to write short if statements, but can be hard to understand at scale. To increase clarity, a stricter equality operator, with a more intuitive behaviour, was introduced. That's why most JS code uses `===` instead of `==`. Similarly, JS code uses `!==` rather than `!=`. For a nice summary of how `==`, `===`, `!=`, `!==` and `if()` work, have a look at [JavaScript equality table](https://dorey.github.io/JavaScript-Equality-Table/). The overall conclusion: always use `===` or `!==`, unless you have a very good reason not to.
 
+### Functions
+
+In Javascript (as in many other languages), functions can be passed as arguments to other functions, or returned from functions. This allows to define powerful abstractions. For instance, event handlers can take a function as argument, and call it when an event happens.
+
+### Scope
+
+Scope refers to how a declared variable is visible in a program. JS variables (declared with `var`) can be declared at the function level, or the global level. With `var`, there is no block scope, as in most other languages:
+- Variables declared inside a block can be accessed from outside the block.
+- Redeclaring a variable inside a block will also redeclare it outside the block
+- Since Javascript is "error forgiving", `var`iables can be used before being declared (they will be "hoisted" to the top of the function). 
+
+An undeclared variable will be declared as a global variable, which can lead to subtle and hard to track bugs.
+
+
+### Strict mode
+Strict mode is an evalaution mode for Javascript that is less forgiving of errors. Errors will be thrown instead of being silently dealt with. Code that in ES6 modules is in strict mode, so most of the code you will write will be in strict mode. See more on strict mode [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+
+## ES6
+
+ES6 introduces many enhancements to JavaScript. In particular, ES6 introduces:
+- `let` and `const` variables, with proper block scope and no hoisting. Essentially, `const` should be use as much as possible, and **`var` should never be used now**.
+- Arrow functions, which are shorter definitions for functions, which have better scoping, particularly for the `this` keyword.
+- First-class support for classes.
+- Modules, import, and export to manage larger amounts of code.
+- Destructuring assignments and spread operators to access data inside objects, and to easily build new objects.
+- Default values for arguments in functions.
+- Promises for asynchronous code (ES8 introduces async/await keywords)
+
+A nice summary of ES6 features is available [here](https://zellwk.com/blog/es6/).
+
+After this introduction, you're ready to practice JS and ES6 with the [JS and ES6 koans](https://github.com/rrobbes/EngineeringOfMobileSystems/tree/master/lab1-jskoans)

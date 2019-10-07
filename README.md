@@ -7,3 +7,6 @@ You can then update it with:
 `git pull`
 
 Should you find a mistake or a typo, you can submit a pull request.
+
+Each subdirectory has a readme file which contains the actual notes, and possibly additional material.
+

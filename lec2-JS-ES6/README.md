@@ -36,5 +36,24 @@ Historically, incompatibilities between different implementations of Javascript 
 
 ## Javascript is weird!
 
-Due to its history, Javascript has some strange behavior. For a fun take on this, have a look at the [wat video](https://www.destroyallsoftware.com/talks/wat).
+Due to its history, Javascript has some strange behavior. 
+
+### Prototypes
+Since it is influenced by Self, Javascript is a prototype-based OO language. Prototype-based OO languages don't have classes. Instead, a "prototype" can be cloned in order to create a new object similar to the previous one. The new object can then be modified to add new behaviour. While a prototype-based system can emulate classes (and vice-versa), it's not very convenient. In ES6, it is also possible to create classes.
+
+### Type conversions
+Javascript is dynamically typed, and is very "forgiving" of mistakes. This makes sense in the context of short programs being written by non-programmers. But for larger programs, it makes it very easy to introduce bugs. In particular, Javascript implicitly converts objects of different types so that they are compatible with each other. But the results are not always (or often) as one would expect. Try to guess the results of these expressions:
+- `'2' * 2`
+- `'2' + 2`
+- `2 + false`
+- `2 + true`
+- `(2 - true - true == false) + 1`
+- `('2' - true - true )`
+- `('2' + true - true )`
+
+For a fun take on this, have a look at the [wat video](https://www.destroyallsoftware.com/talks/wat).
+
+### Truthy and Falsy; `==` vs `===`
+
+Due to the implicit type conversions, in Javascript, a lot of things can evalaute to "true" or "false", which is convenient to write short if statements, but can be hard to understand at scale. To increase clarity, a stricter equality operator, with a more intuitive behaviour, was introduced. That's why most JS code uses `===` instead of `==`. Similarly, JS code uses `!==` rather than `!=`. For a nice summary of how `==`, `===`, `!=`, `!==` and `if()` work, have a look at [JavaScript equality table](https://dorey.github.io/JavaScript-Equality-Table/). The overall conclusion: always use `===` or `!==`, unless you have a very good reason not to.
 

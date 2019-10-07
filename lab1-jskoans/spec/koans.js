@@ -26,7 +26,7 @@ describe("JavaScript", function() {
     it("knows the type of the variable", function() {
       var x = 1;
 
-      expect(typeof(x))...toEqual('number');
+      expect(typeof(x)).toEqual('number');
     });
 
     it("surprises me, NaN is not comparable with NaN", function() {
@@ -87,26 +87,23 @@ describe("JavaScript", function() {
       //expect(arr[2](1)).toEqual();
     });
 
-    it("concatenate arrays - well, kind of", function() {
+    it("concatenate arrays in an 'interesting' way", function() {
       var a = [1,2,3];
       var b = [4,5,6];
 
       // expect(a + b).toEqual();
     });
 
-    it("joins arrays and strings", function() {
+    it("joins arrays and other things in an 'interesting' way", function() {
       var a = [1,2,3];
 
       //expect ("1" + a).toEqual();
       //expect(a + "1").toEqual();
-    });
-
-    it("joins arrays and other things", function() {
-      var a = [1,2,3];
-      var b = ['x', 'y', 'z'];
-
       //expect(1 + a).toEqual();
       //expect(a + 1).toEqual();
+
+      var b = ['x', 'y', 'z'];
+
       //expect(1 + b).toEqual();
       //expect(true + a).toEqual();
     });
@@ -157,6 +154,7 @@ describe("JavaScript", function() {
       //expect(result[1]).toEqual();
     });
 
+    /* skipped -- do on your free time 
     it("may return arrays that contains functions and so on", function() {
       function example() {
          // write the missing code here
@@ -164,6 +162,7 @@ describe("JavaScript", function() {
 
       //expect(example()[0](1)[1]).toEqual(10);
     });
+    */ 
 
     it("doesn't care about the declaration order when they are named", function() {
       function exampleA() {
@@ -177,7 +176,7 @@ describe("JavaScript", function() {
       }
     });
 
-    it("matters, the declaration order when they are anonymous", function() {
+    it("matters, the declaration order when the functions are anonymous", function() {
       var exampleA = function() {
           return exampleB(1);
       };
@@ -201,6 +200,7 @@ describe("JavaScript", function() {
       //expect(example(1,1)).toBe();
     });
 
+    /* skipped -- on your free time
     it("anonymous functions are anonymous", function() {
       var x = function z() {
         return 1;
@@ -208,7 +208,9 @@ describe("JavaScript", function() {
       //expect(typeof(z)).toEqual();
       //expect(x()).toEqual();
     });
+    */ 
 
+    // see: https://en.wikipedia.org/wiki/Closure_(computer_programming)
     it("can create closures with free variables", function() {
       function external() {
         var a = 1;
@@ -251,6 +253,7 @@ describe("JavaScript", function() {
       //expect(external()).toBe();
     });
 
+    /* skipped
     it("may return arrays that contains closures and so on", function() {
       function example() {
         // write the missing code here
@@ -259,7 +262,7 @@ describe("JavaScript", function() {
       //expect(example()[0](1)[1]).toEqual(10);
       //expect(example()[0](2)[1]).toEqual(11);
       //expect(example()[0](3)[1]).toEqual(12);
-    });
+    }); */
 
     it("passes primitive types as values (a copy) to functions", function() {
       function example(arg) {
@@ -352,19 +355,14 @@ describe("JavaScript", function() {
       //expect(f(2)).toBe();
     });
 
-    it("can invoke functions indirectly using the special 'call'", function() {
+    // call: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+    // apply: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+    it("can invoke functions indirectly using the special 'call' and 'apply' functions", function() {
       function f(a, b){
         return a + b;
       }
 
       //expect(f.call(f,1,1)).toEqual();
-    });
-
-    it("can invoke functions indirectly using the special 'apply'", function() {
-      function f(a, b){
-        return a + b;
-      }
-
       //expect(f.apply(f, [1,1])).toEqual();
     });
 
@@ -411,6 +409,7 @@ describe("JavaScript", function() {
       //expect(user.friends[0].name).toEqual('triki');
     });
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("has a pattern called, the Module Pattern", function() {
       function createObject() {
         var points = 0;
@@ -426,21 +425,23 @@ describe("JavaScript", function() {
 
       //expect(obj.score()).toEqual();
       //expect(typeof(obj.points)).toEqual();
-    });
-
+    }); */
+    
+    /* skipped--ES6 has better ways to define objects and classes
     it("may create objects also with the module pattern", function() {
       function createObject(initialScore) {
         // write the code here
       }
 
-      /*
-      var obj = createObject(5, 'red');
-      obj.incrementScoreIn(5);
-      expect(obj.color).toEqual('red');
-      expect(obj.points()).toEqual(10);
-      */
-    });
+      
+      //var obj = createObject(5, 'red');
+      //obj.incrementScoreIn(5);
+      //expect(obj.color).toEqual('red');
+      //expect(obj.points()).toEqual(10);
+      
+    }); */
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("can define constructors", function() {
       function Obj() {
         var name = 'bob';
@@ -452,8 +453,9 @@ describe("JavaScript", function() {
 
       var obj = new Obj();
       //expect(obj.theName()).toBe();
-    });
+    }); */
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("may contain 'static' methods", function() {
       function Obj() {
         var name = 'bob';
@@ -468,8 +470,9 @@ describe("JavaScript", function() {
       };
 
       //expect(Obj.someStaticMethod()).toBe();
-    });
+    }); */
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("can have have methods in the prototype", function() {
       function Obj() {
         var name = 'bob';
@@ -482,8 +485,9 @@ describe("JavaScript", function() {
       var obj = new Obj();
       //expect(obj.theName()).toEqual();
       //expect(obj.theName).toBe(new Obj().theName);
-    });
+    }); */
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("can define a factory", function() {
       function obj() {
         var self = {};
@@ -499,8 +503,9 @@ describe("JavaScript", function() {
       var instance = obj();
       //expect(instance.theName()).toBe();
       //expect(instance.theName).not.toBe(obj().theName);
-    });
+    }); */
 
+    /* skipped--ES6 has better ways to define objects and classes
     it("can create methods dynamically on an object instance", function() {
         var obj = {};
         var methodNames = ['meow', 'jump'];
@@ -510,8 +515,9 @@ describe("JavaScript", function() {
         }
 
         //expect(obj.meow()).toEqual();
-    });
+    }); */
 
+    /*
     describe("the polymorphism", function() {
       it("may use constructor plus prototype", function() {
         function Parent() {
@@ -552,9 +558,10 @@ describe("JavaScript", function() {
         //expect(instance.someMethod()).toBe();
       });
 
-    });
+    }); */
   });
 
+  /* skipped, do at home if you want
   describe("commons patterns with functions and behaviors", function() {
     it("can invoke functions immediately to take advantage of scopes", function() {
       var myNamespace = {};
@@ -576,8 +583,10 @@ describe("JavaScript", function() {
       myNamespace.addOne();
 
       //expect(myNamespace.giveMeTheCount()).toBe();
-    });
+    }); 
 
+    // more about hoisting: https://medium.com/javascript-in-plain-english/https-medium-com-javascript-in-plain-english-what-is-hoisting-in-javascript-a63c1b2267a1
+    // skipped -- don't use var anyways!
     it("hoists variables the way you probably don't expect", function() {
       function generate() {
         var functions = [];
@@ -591,9 +600,10 @@ describe("JavaScript", function() {
 
       //expect(generate()[0]()).toEqual();
       //expect(generate()[1]()).toEqual();
-    });
-  });
+    }); 
+  }); */
 
+  /* skipped---use ES6 classes
   context("has ways to simulate classes", function() {
     // "Class"
     function Cat() {
@@ -629,7 +639,7 @@ describe("JavaScript", function() {
         attack();
         this.onHunting(); // fire event
       };
-      this.onHunting = function() { /* event */ };
+      this.onHunting = function() { event }; // event handler
     }
 
     context("and the THIS keyword", function() {
@@ -703,8 +713,8 @@ describe("JavaScript", function() {
 
         //expect(lion.energy).toEqual();
       });
-    });
-  });
+    }); 
+  }); */
 });
 
 
@@ -835,14 +845,16 @@ describe('`string.includes()` finds string within another string. ', () => {
         /*const findAtPosition = (pos) => 'xyz'.includes(?????); */
         //expect(findAtPosition(void 0)).toBe(true);
       });
+     
+      /* skipped -- you get the point 
       it('negative numbers', function() {
-        /*const findAtPosition = (pos) => 'xyz'.includes(????); */
+        // const findAtPosition = (pos) => 'xyz'.includes(????); 
         //expect(findAtPosition(-2)).toBe(true);
       });
       it('NaN', function() {
-        /* const findAtPosition = (pos) => 'xyz'.includes(?????); */
+        // const findAtPosition = (pos) => 'xyz'.includes(?????); 
         //expect(findAtPosition(NaN)).toBe(true);
-      });
+      }); */
     });
   });
 
@@ -927,6 +939,7 @@ describe('The object literal allows for new shorthands. ', () => {
 
 });
 
+// destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 describe('destructuring arrays makes shorter code. ', () => {
 
   it('extract value from array, e.g. extract 0 into x like so `let [x] = [0];`', () => {
@@ -1037,10 +1050,8 @@ describe('destructuring can also have default values. ', () => {
 
 });
 
-/*********************************
-********* DAILY EXERCISE *********
-**********************************/
-
+// documentation on arrow functions:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 describe('arrow functions. ', () => {
 
   it('are shorter to write', function() {
@@ -1115,7 +1126,7 @@ describe('arrow functions. ', () => {
 describe('destructuring function parameters. ', () => {
 
   describe('destruct parameters', () => {
-    it('multiple params from object', () => {
+    it('multiple params can come from a single object', () => {
       const fn = () => {
         //expect(id).toEqual(42);
         //expect(name).toEqual('Wolfram');
@@ -1194,6 +1205,7 @@ describe('assign object property values to new variables while destructuring. ',
 
 });
 
+// rest parameters: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 describe('rest with destructuring', () => {
 
   it('rest parameter must be last', () => {
@@ -1207,6 +1219,7 @@ describe('rest with destructuring', () => {
   });
 });
 
+// spread syntax: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 describe('spread with arrays. ', () => {
 
   it('extracts each array item', function() {

@@ -1,4 +1,4 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+
 # JavaScript and ES6 Koans
 
 These koans are adapted from the Javascript and ES6 koans in these two repositories:
@@ -96,10 +96,10 @@ Your task is to make the test pass :-). You should:
 - Change the code to pass the test
 - Refresh the page to see that the test is passing
 
-:::warning 
-When changing the code, leave the `expect` lines unchanged!
-:::
 
 This process has to be done for each test. **Do not uncomment all the tests and launch the app. It will be more difficult for you to see if your code is passing the tests.**
 
-In case you refresh the page and a message like `No specs found` on a grey background, it most likely means the code you wrote has a syntax error (and could not be compiled).
+Some things to keep in mind:
+- When changing the code, leave the `expect` lines unchanged! That would be cheating :-)
+- If you refresh the page and see a message like `No specs found` on a grey background, you probably have a syntax error.
+- You probably won't have time to finish everything today, but try to continue on your own time.

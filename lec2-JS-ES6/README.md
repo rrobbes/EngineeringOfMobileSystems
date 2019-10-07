@@ -95,8 +95,8 @@ Strict mode is an evalaution mode for Javascript that is less forgiving of error
 ## ES6
 
 ES6 introduces many enhancements to JavaScript. In particular, ES6 introduces:
-- `let` and `const` variables, with proper block scope and no hoisting. Essentially, `const` should be use as much as possible, and **`var` should never be used now**.
-- Arrow functions, which are shorter definitions for functions, which have better scoping, particularly for the `this` keyword.
+- `let` and `const` variables.
+- Arrow functions.
 - First-class support for classes.
 - Modules, import, and export to manage larger amounts of code.
 - Destructuring assignments and spread operators to access data inside objects, and to easily build new objects.
@@ -105,4 +105,122 @@ ES6 introduces many enhancements to JavaScript. In particular, ES6 introduces:
 
 A nice summary of ES6 features is available [here](https://zellwk.com/blog/es6/).
 
+### Let and Const
+
+`let` and `const` variables essentially work as variables do in most other languages. They are block-scoped, and do not have hoisting. `let` variables can be redefined, while `const` variables can not. `const` variables should be preferred if possible. On the other hand, in ES6, `var` should **never be used**.
+
+### ES6 classes
+
+They work as classes in other languages, rather than prototypes. You can use them to define React Components with state, for instance.
+
+```javascript
+class CompExample extends React.Component{
+    constructor(props){
+        super(props)
+        // initialization
+    }
+
+    render() {
+        // render method 
+    }
+}
+```
+
+See more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+
+### Arrow functions
+
+Arrow functions are shorter function definitions, which also have some differences in terms of scoping of the "this variable". Like so:
+
+```javascript
+const square = function(x) {
+    return x * x
+}
+
+const square = x => x * x
+```
+
+The previous example is extra-short since it also uses the `implicit return`. If there's only one instruction that also is returned, brackets and return can be omitted.
+Arrow functions can have any number of arguments:
+
+```javascript
+const oneArg = arg => {
+    return arg + 4
+}
+
+const noArg = () => {
+    const x = oneArg(3)
+    return oneArg(x)
+}
+
+const twoArgs = (x, y) => oneArg(x * y)
+```
+
+In arrow functions, `this` is lexically bound, while in normal functions, the rules are more complex, making it harder to predict the value of `this` at runtime. In the context of React components, an arrow function defined as a callback will have `this` refer to the component itself, which is most of the time what we want.
+
+```javascript
+class CompExample extends React.Component{
+    something() { } //called by arrow function callback with proper this as expected
+
+    render() {
+        return 
+                (<Button title="button" onPress={() => this.something()} />);
+    }
+}
+```
+
+See more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+
+### Modules and imports
+
+ES6 allows code to be organized in modules, which can be imported by other modules. Each modules chooses which functions/classes/variables it wishes to export as well. There are a few ways to import/export modules, which takes a bit of time to get used to.
+
+See [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export).
+
+### Destructuring assignments and parameters
+Allow to efficiently access values of interest in arrays or objects. Note that not all properties need to be mentioned, only the ones we are interested in.
+
+```javascript
+const allThree = ["first", "second", "third"]
+const one, two, tree = allThree
+
+const second = ([one, two, three]) => two
+console.log(second(allThree))
+
+const greeting = ({name: {first, second}}) => `the name is ${second}, ${first} ${second}`
+const jim = {name: {first: "james", second: "bond"}, number: "007", job: "cook"}
+console.log(greeting(jim))
+```
+
+Note that we also use template strings here.
+
+### Default parameter values
+
+It's pretty much what the name says!
+
+```javascript
+const mul = (x = 9, y = 4) => x * y
+```
+
+### Let's practice!
 After this introduction, you're ready to practice JS and ES6 with the [JS and ES6 koans](https://github.com/rrobbes/EngineeringOfMobileSystems/tree/master/lab1-jskoans).
+
+## Higher-order functions and functional programming
+
+Since JS functions can be passed as arguments, a lot of data transformations can be expressed with higher-order functions in the functional programming paradigm:
+
+- [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) `[x] (x => bool) => bool`
+- [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) `[x] (x => bool) => [x]`
+- [find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) `[x] (x => bool) => x`
+- [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) `[x] (x => y) => undefined`
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) `[x] (x => y) => [y]`
+- [flatMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap) `[x] (x => [y]) => [y]`
+- [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) `[x] (y x => y) y`
+- [reduceRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight) `[x] (y x => y) y`
+
+Note: most of the HOF for arrays may also take as argument the current index in the array, and the array contents, if they need it.
+
+Other HOF just take another function as argument
+- [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) `(x y z => t) x y z => t`
+- [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) `(x y z => t) [x y z] => t`
+- [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  `(x y z => t) x => (y z => t)`, to perform partial evalaution

@@ -1,72 +1,95 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
-# ES6 JavaScript Koans
+# JavaScript and ES6 Koans
 
-## Introduction
+These koans are adapted from the Javascript and ES6 koans in these two repositories:
+- [https://github.com/ironhack/javascript-koans]
+- [https://github.com/ironhack-labs/lab-es6-javascript-koans]
 
-We already did an exercise using Koans methodology on the first module. Koans are an excellent way for practice some fundamentals of the programming language we are learning. In this case, we will continue practicing JavaScript, but using the **ES6** features we learned!
 
-Just to a quick reminder, let's remember a bit about Koans!
+## What are the Koans?
 
-![](https://i.imgur.com/9Ug9NBn.png)
+[Koans](https://en.wikipedia.org/wiki/K%C5%8Dan) (公案) originate from Zen Buddhism, and are paradoxical riddles or stories used to test "students" on their path to enlightenment. They are designed to provoke thought or doubt in the student's mind. We are here to learn coding, so... what are the Koans?
 
-### What are the Koans?
+The Koans are a series of assertions you must solve to understand how a programming language works. This is the first step to become a better developer. The Koans become increasingly more difficult as you continue, so don't feel discouraged as you move forward through them.
 
-[Koans](https://en.wikipedia.org/wiki/K%C5%8Dan) (公案) originate from Zen Buddhism. They are paradoxical riddles or stories which are used to test students on their path to enlightenment. They are designed to provoke thought or doubt in the student's mind. We are here to learn to code, so... what are the Koans?
-
-The Koans are a series of assertions you must solve to understand how a programming language works. These assertions are the first step to become a better developer. The Koans become increasingly more difficult as you continue, so don't feel discouraged as you move forward through them.
-
-There are Koans for all the programming languages. We will be working with JavaScript Koans. The mechanism is the following:
+There are Koans for all the programming languages. We will work with JavaScript Koans. The mechanism is the following:
 
 - You get an assertion that is not passing a **test**.
-- You need to change/add code to make the **test** pass.
+- You have to give the test the correct expected result to pass it.
 
-We are going to test the code assertions through Jasmine. Here we have introduced two new concepts: Testing and [Jasmine](http://jasmine.github.io/). Let's see a brief introduction about both of them.
-
-## Testing
-
-When we are coding, we have to be sure that our code is working as we expect. More than that, when we update our existing code, we have to be 100% sure that the old one is still working. As our website becomes larger, it becomes more difficult to check that all our features are working as we expect. How can we automatize this process? The answer is with **testing**.
+We are going to test the code assertions with the [Jasmine](http://jasmine.github.io/) testing framework.
 
 
-## Requirements
+## Jasmine
 
-- Fork this repo
-- Clone this repo
+To understand better what are the parts of the test in Jasmine, we will walk through an example. This is the first test we will find in our Koans:
 
-## Submission
+```javascript
+describe("JavaScript", function () {
+  describe("has different types and operators", function() {
+    it("considers numbers to be equal to their string representation", function() {
+      expect(1 == "1").toBeTruthy();
+      expect(1 != "1").toBeFalsy();
+    });
+  });
+});
+```
 
-- Upon completion, run the following commands:
+We will go through each different part of the test to explain all of them:
 
-  ```
-  git add .
-  git commit -m "done"
-  git push origin master
-  ```
+### describe
 
-- Create Pull Request so your TAs can check up your work.
+Describe used to group different tests on our code. This is very helpful when we see the tests results. In the code above, we have two different describes:
+
+- The first `describe` groups **all** the tests for Javascript. 
+- The second `describe` indicates us that we will test the different types and operators that JavaScript has.
+
+As you can see, those are just information strings. When we execute our tests, they appear in the page grouping the different tests we have. This is very helpful when we have a lot of tests, to identify which tests are not passing.
+
+### it
+
+It receives a `string` that indicates what we are testing. It has to be a clear description about what we are going to do. In our example, we are testing that JavaScript considers the numbers to be equal to their string representation.
+
+### expect
+
+What we are expecting in the test. This function contains the expression we want to test. This expression has to coincide with the matcher of the test. If they agree, the test will pass. If they disagree, the test will fail.
+
+### matcher
+
+The matchers determine if a test will pass or not. The expression in the `expect` has to agree with the matcher. In our example, we are testing that JavaScript considers the numbers to be equal to their string representation. The matcher we selected is `.toBeTruthy()`.
+
+So, the test `expect(1 == "1").toBeTruthy()` will pass. There is a huge list of matchers on testing, but we don't have to know all of them. The matchers we will use here are:
+
+- `.toBeTruthy()` and `.toBeFalsy()`. We expect the expression to be truthy or falsy
+- `.toEqual()`. We expect the expression to be equal than the value passed as a parameter, and it has also to be the same type: i.e. `expect(1).toBe(1)`
+- `.toBe()`. We expect the expression to be equal than the value passed as a parameter, but not necessary the same type: i.e. `expect(1).toBe("1")`
+- `not`. To negate the matcher.
+
+We will see there are a lot of matchers we can use. Right now we just need the ones described above to do the Koans.
 
 
-We need to execute our tests so open the file `SpecRunner.html` with your browser.
 
-In the beginning, you will see all the tests in yellow because the tests we have to implement are commented. (except for one, that throws an error, no worries :wink:)
+## Your task
+
+- First fork and clone this repo into your Github account. 
+- Then open the file `index.html` with your browser. The title of the page should be `Jasmine Test Runner`.
+- You will see that all the tests are green, but most say `SPEC HAS NO EXPECTATIONS`. This is because the tests we have to implement are commented out.
 
 All the tests are located inside the `spec` folder. Open the `koans.js` file and uncomment the following line:
 
 ```javascript
-it('`var` works as usual, it does not restricts scope', () => {
-  if (true) {
-    /*You should add your code in here*/
-  }
-  expect(varX).toBe(true);
+it("surprises me, NaN is not comparable with NaN", function() {
+  expect(5 / "a").toEqual(5 / "a");
+  //expect(typeof(NaN)).toEqual();
+  expect(isNaN(5 / "a")).toBeTruthy();
 });
 ```
 
-When we uncomment the line and refresh the `SpecRunner.html` page, we will see something like that:
+When we uncomment the line and refresh `index.html`, we will see an error message, similar to:
 
-![image](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_0a3269347ff9cf345534607ba27809d2.png)
+![](https://i.imgur.com/6aOBOPf.png)
 
-**The primary goal is not to finish all the tests. We want you to understand why each test is failing and how does JavaScript ES6 work in specific scopes.**
-
-To do that, the correct workflow is the one used on Test Driven Development([TDD](https://en.wikipedia.org/wiki/Test-driven_development)):
+Your task is to make the test pass :-). You should:
 
 - Uncomment the test
 - Refresh the page to see that the uncommented test is failing
@@ -74,13 +97,9 @@ To do that, the correct workflow is the one used on Test Driven Development([TDD
 - Refresh the page to see that the test is passing
 
 :::warning 
-Leave the expect lines unchanged! 👀 
+When changing the code, leave the `expect` lines unchanged!
 :::
 
 This process has to be done for each test. **Do not uncomment all the tests and launch the app. It will be more difficult for you to see if your code is passing the tests.**
 
-Since the Koans includes tests about a lot of the ES6 features, you can keep practicing individually after class. 
-
-As we said, this is an excellent way to learn things about a programming language. 
-
-Happy coding! :heart:
+In case you refresh the page and a message like `No specs found` on a grey background, it most likely means the code you wrote has a syntax error (and could not be compiled).

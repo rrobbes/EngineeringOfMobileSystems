@@ -61,3 +61,9 @@ Platforms such as **Symbian** were created to provide a wider target audience. S
 - Symbian gave different weight to native and third party apps
 
 **Java ME (Micro Edition)** introduced the Mobile Information Device Profile (MIDP) specification, to abstract away the underlying hardware. This allowed to create applications that run on the wide variety of devices that support the Java run time. However, there were still restricted access to the device hardware, and sandboxed executions. Furthermore, Java ME was for very limited devices (160-512KB memory), e.g. IoT nowadays.
+
+Modern OSes, such as **Android and iOS** Provide a rich and simplified developmentenvironment, in which hardware access is available to all applications. These devices are much more powerful as well. However, there is still the issue that two platforms exist, and will exist for the foreseable future. This has the issue that supporting both platforms is a lot of work, as they have different languages, frameworks, and APIs.
+
+## Cross-platform Mobile development
+
+There has been a variety of cross-platform development options

@@ -212,13 +212,15 @@ Allow to efficiently access values of interest in arrays or objects. Note that n
 
 ```javascript
 const allThree = ["first", "second", "third"]
-const one, two, tree = allThree
+const [one, two, tree] = allThree
 
 const second = ([one, two, three]) => two
 console.log(second(allThree))
 
-const greeting = ({name: {first, second}}) => `the name is ${second}, ${first} ${second}`
 const jim = {name: {first: "james", second: "bond"}, number: "007", job: "cook"}
+const {job, number} = jim
+
+const greeting = ({name: {first, second}}) => `the name is ${second}, ${first} ${second}`
 console.log(greeting(jim))
 ```
 

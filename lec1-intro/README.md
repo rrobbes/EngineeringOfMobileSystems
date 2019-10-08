@@ -124,3 +124,28 @@ In short (and to dramatize) **data changing over time is the root of all evil**.
 
 Other benefits of functional programming are the possibility to compose functions easily, and possible optimizations, such as memoization of parallelising computations. For more on functional programming in javascript, check out [this blogpost](https://www.matthewgerstman.com/tech/functional-programming-fundamentals/) and [this book](https://github.com/getify/Functional-Light-JS).
 
+# React
+
+Before React Native, let's talk about React, the base framework for the web.
+
+## In a nutshell
+
+React uses the following concepts:
+- The UI is described in terms of Components, organized in a tree. Components can be composed of sub-components. Components can be **pure functions**, or have some state (but need to obey React rules).
+- React uses JSX, a declarative syntax, instead of imperative commands to build and modify the tree of component.
+- React render the UI tree.
+- Functions are used as callbacks, to react to user input and external events.
+- If callbacks cause a change in the data, the entire UI tree is re-rendered.
+- React is smart and makes this rendering efficient.
+
+## Components and JSX
+
+Here is a simple component as a pure function:
+
+```javascript
+const HelloWord = function(){
+     return (<div>
+                <span>Hello World!</span>
+             </div>);
+}
+```

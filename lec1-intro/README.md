@@ -64,6 +64,36 @@ Platforms such as **Symbian** were created to provide a wider target audience. S
 
 Modern OSes, such as **Android and iOS** Provide a rich and simplified developmentenvironment, in which hardware access is available to all applications. These devices are much more powerful as well. However, there is still the issue that two platforms exist, and will exist for the foreseable future. This has the issue that supporting both platforms is a lot of work, as they have different languages, frameworks, and APIs.
 
+Moreover, teaching both iOS and Android development in a 60 hours class is logistically not feasible.
+
 ## Cross-platform Mobile development
 
-There has been a variety of cross-platform development options
+There has been a variety of cross-platform development options:
+- [Cordova](https://en.wikipedia.org/wiki/Apache_Cordova)
+- [Ionic](https://en.wikipedia.org/wiki/Ionic_(mobile_app_framework))
+- [Xamarin](https://en.wikipedia.org/wiki/Xamarin)
+- [React Native](https://en.wikipedia.org/wiki/React_Native)
+- [Flutter](https://en.wikipedia.org/wiki/Flutter_(software))
+
+Most of these have the issues that they don't use native UI components, which make the applications second-class citizens. The exceptions are Xamarin and React Native.
+
+## React Native
+
+React Native is a platform to develop mobile UIs, which has several desirable characteristics:
+
+- It is cross platform, but has native widgets.
+- RN can support purely native views in Java, Kotlin, Objective-C or Swift if needed
+- RN supports "live programming" and fast feedback of changes, which is very useful when developing.
+- It promotes good programming practices, being in particular influenced by functional programming concepts.
+- The React paradigm has influenced several modern UI frameworks, so the concepts behind React are applicable in a broader context.
+
+In particular, React has influenced:
+- SwiftUI, the new UI framework for iOS
+- Jetpack Compose, the new UI framework for Android
+- Flutter, the cross-platform UI framework
+
+# React
+
+
+
+

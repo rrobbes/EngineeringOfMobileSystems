@@ -92,7 +92,15 @@ In particular, React has influenced:
 - Jetpack Compose, the new UI framework for Android
 - Flutter, the cross-platform UI framework
 
-# React
+# Functional Programming
+
+Before talking about React, let's talk about Functional Programming. Briefly, Functional Programming aims to write programs as **Pure Functions**. Pure functions are functions that do not depend on outside state. This has the benefit that pure functions are predictable: given the same inputs, a pure function will **always** have the same outputs. 
+
+- bugs
+- dijkstra
+- root of all evil
+
+
 
 
 

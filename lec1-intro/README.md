@@ -180,4 +180,72 @@ const Hello3 = () => (
         <Hello name="Charlie"/>
     </div>
 )
+
+const HelloList = (props) => (
+    <div>
+      {props.names.map(n => (<Hello name={n}/>))}
+    </div>
+)
+```
+
+Changes to props will cause components to re-render.
+
+## State
+
+Class components (and function components with Hooks later) can use state. However, **the state should never be mutated directly**. The framework method `setState()` should be used to change the state of a compoenent, always giving a **new state**, not a mutated old state. 
+
+Here is a complete example, that you can paste in [https://codesandbox.io] and play with:
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+ 
+import "./styles.css";
+ 
+ // class declaration
+class Counter extends React.Component {
+   
+   // Constructur, initializing state.
+   constructor(props) {
+     super(props)
+      this.state = {
+          count: 0,
+          increment: props.increment?props.increment:1
+       }
+   }
+ 
+   // callback to change the state
+   increment() {
+     this.setState({count: this.state.count + this.state.increment});
+   }
+ 
+   decrement() {
+     this.setState({count: this.state.count - this.state.increment});
+   }
+   
+ //renders the UI, including callbacks, with arrow functions for proper this handling.
+ render() {
+     return (
+       <div>
+           <h2> my state is {this.state.count}</h2>
+           <button onClick={() => this.increment()}>increment</button>
+           <button onClick={() => this.decrement()}>decrement</button>
+       </div>)
+   }
+}
+
+function BigApp() {
+  return ( 
+    <div>
+      <Counter increment={5}/>
+      <Counter increment={4}/>
+      <Counter increment={-15}/>
+      <Counter/>
+    </div>
+  )
+}
+
+ 
+const rootElement = document.getElementById("root");
+ReactDOM.render(<BigApp />, rootElement);
 ```

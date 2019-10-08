@@ -143,9 +143,41 @@ React uses the following concepts:
 Here is a simple component as a pure function:
 
 ```javascript
-const HelloWord = function(){
-     return (<div>
+const HelloWorld = function(){
+     return (<div className="hello">
                 <span>Hello World!</span>
              </div>);
 }
+```
+
+It is the same as:
+
+```javascript
+const HelloWorld = function() {
+     return React.createElement(
+            "div",
+            {class: "hello"}, 
+            React.createElement("span", {}, "Hello World!));
+}
+```
+}
+
+## Props
+
+Props are properties passed to components, the equivalent of function parameters. They can be referenced inside JSX with curly brackets (any JS expression can, in fact).
+
+```javascript
+const Hello = function(props){
+     return (<div className="hello">
+                <span>Hello {props.name}!</span>
+             </div>);
+}
+
+const Hello3 = () => (
+    <div>
+        <Hello name="Alice"/>
+        <Hello name="Bob"/>
+        <Hello name="Charlie"/>
+    </div>
+)
 ```

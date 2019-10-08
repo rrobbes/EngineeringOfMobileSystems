@@ -96,12 +96,31 @@ In particular, React has influenced:
 
 Before talking about React, let's talk about Functional Programming. Briefly, Functional Programming aims to write programs as **Pure Functions**. Pure functions are functions that do not depend on outside state. This has the benefit that pure functions are predictable: given the same inputs, a pure function will **always** have the same outputs. 
 
-- bugs
-- dijkstra
-- root of all evil
+As Dijkstra says in [Go To Statement Considered Harmful](http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html):
 
+``My second remark is that our intellectual powers are rather geared to master static relations and that our powers to visualize processes evolving in time are relatively poorly developed. For that reason we should do (as wise programmers aware of our limitations) our utmost to shorten the conceptual gap between the static program and the dynamic process, to make the correspondence between the program (spread out in text space) and the process (spread out in time) as trivial as possible. ``
 
+In short, human beings have troubles reasoning about processes that change in time, such as a function that returns a different value over time, for the same inputs. By using predictable functions as much as possible, our programs can become much more easy to reason about. 
 
+Indeed, functions that have side effects are hard to reason about for several reasons. They may:
+- Mutate their state, such that a subsequent call returns a different value. `counter()` below will return a different value each time it is called.
+```javascript
+let count = 0
 
+function counter() {
+    count ++;
+    return count;
+}
+```
+- Depend on shared state, such as `printCounter()` below. It does not change anything, but it depends on how many times `counter()` is called, even if it has no control over it.
+```javascript
+function printCounter() {
+    console.log(`the value of the counter is ${counter}`);
+}
+```
+- Perform I/O, or other asynchronous operations.
 
+In short (and to dramatize) **data changing over time is the root of all evil**. We should try to limit it as much as possible.
+
+Other benefits of functional programming are the possibility to compose functions easily, and possible optimizations, such as memoization of parallelising computations. For more on functional programming in javascript, check out [this blogpost](https://www.matthewgerstman.com/tech/functional-programming-fundamentals/) and [this book](https://github.com/getify/Functional-Light-JS).
 

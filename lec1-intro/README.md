@@ -162,6 +162,8 @@ const HelloWorld = function() {
 ```
 }
 
+More on the [JSX syntax](https://reactjs.org/docs/introducing-jsx.html).
+
 ## Props
 
 Props are properties passed to components, the equivalent of function parameters. They can be referenced inside JSX with curly brackets (any JS expression can, in fact).
@@ -188,11 +190,11 @@ const HelloList = (props) => (
 )
 ```
 
-Changes to props will cause components to re-render.
+Changes to props will cause components to re-render. More on [components and props](https://reactjs.org/docs/components-and-props.html).
 
 ## State
 
-Class components (and function components with Hooks later) can use state. However, **the state should never be mutated directly**. The framework method `setState()` should be used to change the state of a compoenent, always giving a **new state**, not a mutated old state. 
+Class components (and function components with Hooks later) can use state. However, **the state should never be mutated directly**. The framework method `setState()` should be used to change the state of a compoenent, always giving a **new state**, not a mutated old state. See more on [setState](https://reactjs.org/docs/state-and-lifecycle.html)
 
 Here is a complete example, that you can paste in [https://codesandbox.io] and play with:
 
@@ -249,3 +251,8 @@ function BigApp() {
 const rootElement = document.getElementById("root");
 ReactDOM.render(<BigApp />, rootElement);
 ```
+
+## Rendering
+
+At rendering time, React maintains a tree of virtual elements. The new version of the tree is then diffed with the previous version, in order to find out what the differences are. React thus extract the minimum set of differences, and issues a list of imperative commands to modify the actual tree of UI components, behind the scenes. More on [React Rendering](https://reactjs.org/docs/rendering-elements.html).
+

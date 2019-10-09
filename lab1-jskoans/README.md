@@ -72,10 +72,10 @@ We will see there are a lot of matchers we can use. Right now we just need the o
 ## Your task
 
 - First fork and clone this repo into your Github account: `git clone https://github.com/rrobbes/EngineeringOfMobileSystems.git`.
-- Then open the file `index.html` with your browser. The title of the page should be `Jasmine Test Runner`.
+- Then open the file `./lab1-jskoans/index.html` with your browser. The title of the page should be `Jasmine Test Runner`.
 - You will see that all the tests are green, but most say `SPEC HAS NO EXPECTATIONS`. This is because the tests we have to implement are commented out.
 
-All the tests are located inside the `spec` folder. Open the `koans.js` file and uncomment the following line:
+All the tests are located inside the `spec` folder (`lab1-jskoans/spec/koans.js`). Open the `koans.js` file and uncomment the following line:
 
 ```javascript
 it("surprises me, NaN is not comparable with NaN", function() {

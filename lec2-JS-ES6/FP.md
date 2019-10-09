@@ -58,3 +58,12 @@ const bind2 = (f, y) => ((x) => f(x, y))
 const div2 = bind2(twoArgs, 2)
 ```
 
+## Some exercises
+
+
+- Define a type of object
+- Make a list of them
+- Implement various transformations on them
+- Implement map with recursion
+- Implement the "zip" function
+- Play with bind too

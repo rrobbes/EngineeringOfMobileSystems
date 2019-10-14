@@ -67,3 +67,4 @@ const div2 = bind2(twoArgs, 2)
 - Implement map with recursion
 - Implement the "zip" function
 - Play with bind too
+

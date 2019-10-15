@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
+// todo application
+// you can try it by pasting the code in 
+// https://codesandbox.io/
+
 const Todo = props => {
   return (
     <div>

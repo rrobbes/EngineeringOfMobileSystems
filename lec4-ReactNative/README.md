@@ -10,7 +10,7 @@ What changes significantly is how the concepts are implemented behind the scenes
 
 ## RN's implementation
 
-To execute JS in a mobile application, RN uses a JS engine (JavaScriptCore)[http://trac.webkit.org/wiki/JavaScriptCore], or (Hermes)[https://facebook.github.io/react-native/docs/hermes/] to execute the application, which communicates with a native thread. The JS code is transpiled to ES5 (allowing more recent JS versions to be used), and is minified, along with all the included libraries, to reduce its size. 
+To execute JS in a mobile application, RN uses a JS engine [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), or [Hermes](https://facebook.github.io/react-native/docs/hermes/) to execute the application, which communicates with a native thread. The JS code is transpiled to ES5 (allowing more recent JS versions to be used), and is minified, along with all the included libraries, to reduce its size. 
 
 The native thread is specific to the platform the application is running in (e.g., iOS, Android, or the web browser). The native thread communicates with the Javascript thread to a bridge. The threads use this bridge to send messages to each other:
 - The JS thread indicates to the native thread the native UI components that should be displayed
@@ -22,7 +22,7 @@ One nice property of this model is that both thread execute separately. One thre
 
 ## API differences between RN and React
 
-While the base concepts are similar, all the base components are differents. In React, they are HTML components, while in RN, they are base UI components instead. For instance, `<div>`s are usually replaced by `<Views>`; `<span>`s, `<p>`s, `<hx>`s are replaced by `<Text>` components (all texts in RN should use the `<Text>` component). HTML `<button>`s will be replaced by RN `<Button>`s which have different properties, or by various (Touchables)[https://facebook.github.io/react-native/docs/handling-touches]. Lists (`<ul>`, `<li>`) will be often replaced with `<ScrollView>`s, or more advanced [lists](https://facebook.github.io/react-native/docs/using-a-listview). 
+While the base concepts are similar, all the base components are differents. In React, they are HTML components, while in RN, they are base UI components instead. For instance, `<div>`s are usually replaced by `<Views>`; `<span>`s, `<p>`s, `<hx>`s are replaced by `<Text>` components (all texts in RN should use the `<Text>` component). HTML `<button>`s will be replaced by RN `<Button>`s which have different properties, or by various [Touchables](https://facebook.github.io/react-native/docs/handling-touches). Lists (`<ul>`, `<li>`) will be often replaced with `<ScrollView>`s, or more advanced [RN lists](https://facebook.github.io/react-native/docs/using-a-listview). 
 
 The documentation lists all the basic components (e.g, for [text input](https://facebook.github.io/react-native/docs/handling-text-input)). We will see additional components on an as-needed basis. Feel free to consult the documentation on your own.
 

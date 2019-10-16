@@ -11,19 +11,18 @@ To get started, you should go to [https://snack.expo.io]. You can select any ren
 
 The first thing you will do is to re-implement both counter we did (the one with increment and decrement buttons, and the auto-incrementing one) in React Native. After that, it's up to you! Here are some things you can do, try to do as many as possible.
 
-- A bunch of counters.
-- Change their colors: background, front, font size
-- Make them in column layout
-- Make them in row layout
-- Make them in square layout
+- Create a bunch of counters.
+- Change their style: background color, font color, font size, margin, padding ...
+- Arrange the counters in column layout
+- Arrange them in row layout
+- Arrange them in a grid layout
 
-- Let them set the increment
-- Let them auto increment
-- Let them skip numbers (all/odd/none)
-- Make auto-increment go faster/slower
-- Style them with colours, etc.
+- Increase the increment step for the counters
+- Control auto-increment speed: faster/slower
+- Change counter type from manual to auto-increment and vice-versa
+- Let counters skip numbers (all/odd/none)
 - Allow to add new counters.
-- Have a counter that changes colour, font size, if count is odd/even, %10, etc
+- Have counters that changes colour, font size, if count is odd or even, or if it is divisible by 10, etc
 - Have a counter with random styles
 - Have counter that move around the grid
 - Sort the counters by their count

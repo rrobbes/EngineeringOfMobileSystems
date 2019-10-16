@@ -1,4 +1,4 @@
-### COUNTER MADNESS!!!
+# COUNTER MADNESS!!!
 
 The goal of this lab is to practice base React and RN skills. In particular, we will practice:
 - definition of components
@@ -27,4 +27,14 @@ The first thing you will do is to re-implement both counter we did (the one with
 - Have counter that move around the grid
 - Sort the counters by their count
 
+### setInterval
 
+```javascript
+const nMillis = 1000; // number of milliseconds
+this.interval = setInterval(() => {
+    // code of function to be called
+    }, nMillis);
+    
+// later ....
+clearInterval(this.interval)
+```

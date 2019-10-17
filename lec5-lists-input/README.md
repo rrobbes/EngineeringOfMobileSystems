@@ -106,7 +106,7 @@ becomes
 
 The item that renderItem takes has more properties than the item: there is an index and a separator that it can take. See the API: [renderItem](https://docs.expo.io/versions/latest/react-native/flatlist/#renderitem). 
 
-Notice that now the FlatList is much faster! It's only rendering roughly ten items at once (all that are visible, plus maybe a few more that are just outside the window to make scrollign smoother). It renders the other items only as the user gets to them. An item that is not displayed will never be rendered. Essentially, flatList is "lazy". That's another concept that is found in some functional programming languages, such as Haskell.
+Notice that now the FlatList is much faster! It's only rendering roughly ten items at once (all that are visible, plus maybe a few more that are just outside the window to make scrollign smoother). It renders the other items only as the user gets to them. An item that is not displayed will never be rendered. Essentially, flatList is "lazy". That's another concept that is found in some functional programming languages, such as Haskell, that has [lazy evaluation](https://en.wikipedia.org/wiki/Lazy_evaluation), in contrast with [eager evaluation](https://en.wikipedia.org/wiki/Eager_evaluation).
 
 Regarding keys, FlatList uses by default the key property of the objects that it renders. But this behaviour can be changed, by passing another function in the `keyExtractor` prop.
 

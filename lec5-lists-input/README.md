@@ -18,6 +18,21 @@ Expo makes it easy to run applications both on device and in the simulator. For 
 
 Note that having the simulators running is processor intensive.
 
+### Creating a new project
+
+The easiest is to follow the instruction on the [expo website](https://expo.io/learn). In a nutshell:
+
+- Donwload and install [NodeJS](https://nodejs.org/en/) (on windows, you can use the LTS release if you run into trouble)
+- Install expo with npm `npm install expo-cli --global` (you might need to do this step with super-user right.
+- Then issue the following 3 commands
+- `expo init project-name`
+- `cd project-name`
+- `expo start`
+
+### Errors while running Expo
+
+In case you have an error related to regular expressions when starting the expo server (`expo start`), check if it is similar to [this error](https://github.com/expo/expo-cli/issues/1074) (particularly if you are using Windows). If that's the case, it is likely that the version of node that you use is too recent, and there is an incompatibility. Try to use an older version such as the [LTS release](https://nodejs.org/en/).
+
 ## Example: Contacts application
 
 In the next few lectures we will build a contact application. By the end it will:

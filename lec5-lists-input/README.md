@@ -10,13 +10,28 @@ Expo is a framework built on top of React Native. It does a few things for you:
 
 First, Expo abstracts away the complexity of compiling and deploying the native applications. This is usually done with XCode or Android Studio. A native application needs to be redeployed to a device of emulator whenever you want to test it. Expo offers an easier solution: the mobile device or simulator runs the Expo app, while the development machine runs a suite of development tools. Both communicate through a network connection. Whenever the source code changes, the development tools can notify Expo through the connection, and send it the files that changed. They will then be recompiled and re-executed in the app, which allows for a quick turnaround of the changes. Occasionaly, this may fail and all the code needs to be redownloaded, which is slower (a few seconds). But this is still much faster than recompiling a native app.
 
-Second, Expo provides additional APIs on top of the ones that RN provides by default, to handle a variety of common tasks, such as using more UI elements, accessing cameras, sensors, etc. All of these can be installed in normal RN, but the Expo team does an important job in curating the set of APIs they provide, ensuring that the selected packages work well, and work well on both platform (for the most part). See the full list of Expo APIs here: [https://docs.expo.io/versions/latest/].
+Second, Expo provides additional APIs on top of the ones that RN provides by default, to handle a variety of common tasks, such as using more UI elements, accessing cameras, sensors, etc. All of these can be installed in normal RN, but the Expo team does an important job in curating the set of APIs they provide, ensuring that the selected packages work well, and work well on both platform (for the most part). See the full list of Expo APIs here: [https://docs.expo.io/versions/latest/]. This pre-selection is much easier than wading through the 1,000,000+ packages available on npm (see statistics [here](http://www.modulecounts.com)).
 
 Expo makes it easy to run applications both on device and in the simulator. For a device, if Expo is installed on it, you can simply scan the QR code in the Expo console. The Expo console also has buttons to launch the apps in the Android and iOS simulators, if they are installed. Here is how to install them:
 - [Android Simulator](https://docs.expo.io/versions/v35.0.0/workflow/android-studio-emulator/). Works on any laptop in which Android studio is installed (Linux, Windows, Mac). Carefully follow the instructions to have the environment properly set up.
 - [iOS Simulator](https://docs.expo.io/versions/latest/workflow/ios-simulator/). This works only on Macs.
 
 Note that having the simulators running is processor intensive.
+
+### Creating a new project
+
+The easiest is to follow the instruction on the [expo website](https://expo.io/learn). In a nutshell:
+
+- Donwload and install [NodeJS](https://nodejs.org/en/) (on windows, you can use the LTS release if you run into trouble)
+- Install expo with npm `npm install expo-cli --global` (you might need to do this step with super-user right.
+- Then issue the following 3 commands
+- `expo init project-name`
+- `cd project-name`
+- `expo start`
+
+### Errors while running Expo
+
+In case you have an error related to regular expressions when starting the expo server (`expo start`), check if it is similar to [this error](https://github.com/expo/expo-cli/issues/1074) (particularly if you are using Windows). If that's the case, it is likely that the version of node that you use is too recent, and there is an incompatibility. Try to use an older version such as the [LTS release](https://nodejs.org/en/).
 
 ## Example: Contacts application
 
@@ -91,7 +106,7 @@ becomes
 
 The item that renderItem takes has more properties than the item: there is an index and a separator that it can take. See the API: [renderItem](https://docs.expo.io/versions/latest/react-native/flatlist/#renderitem). 
 
-Notice that now the FlatList is much faster! It's only rendering roughly ten items at once (all that are visible, plus maybe a few more that are just outside the window to make scrollign smoother). It renders the other items only as the user gets to them. An item that is not displayed will never be rendered. Essentially, flatList is "lazy". That's another concept that is found in some functional programming languages, such as Haskell.
+Notice that now the FlatList is much faster! It's only rendering roughly ten items at once (all that are visible, plus maybe a few more that are just outside the window to make scrollign smoother). It renders the other items only as the user gets to them. An item that is not displayed will never be rendered. Essentially, flatList is "lazy". That's another concept that is found in some functional programming languages, such as Haskell, that has [lazy evaluation](https://en.wikipedia.org/wiki/Lazy_evaluation), in contrast with [eager evaluation](https://en.wikipedia.org/wiki/Eager_evaluation).
 
 Regarding keys, FlatList uses by default the key property of the objects that it renders. But this behaviour can be changed, by passing another function in the `keyExtractor` prop.
 

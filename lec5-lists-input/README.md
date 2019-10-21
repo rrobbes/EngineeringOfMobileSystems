@@ -1,4 +1,4 @@
-# Expo, Scrolling and Lists, and User Input
+# Expo, Scrolling, and Lists
 
 In this class we start our first "real" (i.e., using multiple files) application, using the tools that we will use for the whole semester. This class is based in part on [CS50 Lecture 4](https://video.cs50.net/mobile/2018/spring/lectures/4).
 
@@ -147,34 +147,3 @@ As with a FlatList, each `data` is still a list. It just works like the FlatList
 
 
 
-
-# User Input
-
-How de we add a new contact? For this, we need new UI components, and to learn about a couple of new concepts. 
-
-There are two ways to handle user input: controlled vs uncontrolled user input.
-The difference between these is where the source of truth for the input is. In other words, who is keeping track of the value of the input?
-
-If we used controlled user input, the input is controlled by the framework, i.e., React. If we use uncontrolled user input, the input will be whatever the input widget contains.
-
-React (and RN) recommends, and uses by default, controlled user input. It is easier to control the value of the input this way.
-
-In practice, React gets called everytime the input changes, and gets a "veto right" over the input value: React gets to decide what the actual value should be. The value of the input mirrors an actual variable in the state of the component, and changes to it must be confirmed by React. If the state is not updated, the input component will be reset to the value that the state contains.
-
-Concretely, a `<TextInput>` has an `onChangeText` callback, and a `value`, which tracks a variable in the state. If the change to the input is accepted, then `onChangeText` should call `setState` to set the state variable to the value of the input.
-
-
-```javascript
-
-handleNameChange = name => {
-    this.setState({name: name}) 
-} 
-
-// ...
-
-<TextInput value={this.state.name} onChangeText={this.handleNameChange}>
-```
-
-Notice that the TextInput reference a state variable. If `this.state.name` does not change, when the component is re-rendered, the text input will be automatically reset to the value that is in `this.state.name`.
-
-While in this class we do not do any control of the input, we will do more of that in the next lecture.

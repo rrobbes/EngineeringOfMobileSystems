@@ -16,7 +16,9 @@ In addition, each mode has additional functionality. These can be triggered by a
 - The clock can display the time in 4 selected time zones of your choice. 
 
 To give you a rough idea, the application can look like this:
-<img src="./Timer.png" width=100>
+
+
+<img src="./Timer.png" width=150>
 
 If you have extra time, you can further look into the following:
 - For the timer, change the background color when it is closer to zero. If the time left is 20% of the elapsed time, change it to yellow. If 10%, orange. If 5%, red. When the count has elapsed, the background should blink: 1 second red, 1 second white, until the reset or stop button are pressed.

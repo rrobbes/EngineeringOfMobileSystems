@@ -18,12 +18,13 @@ In addition, each mode has additional functionality. These can be triggered by a
 To give you a rough idea, the application can look like this:
 
 
-<img src="./Timer.png" width=150>
+<img src="./Timer.png" width=200>
 
-If you have extra time, you can further look into the following:
+If you have extra time, you can further look into the following (no particular order):
 - For the timer, change the background color when it is closer to zero. If the time left is 20% of the elapsed time, change it to yellow. If 10%, orange. If 5%, red. When the count has elapsed, the background should blink: 1 second red, 1 second white, until the reset or stop button are pressed.
 - The clock supports a pop-up menu style component or a text input to select the time zone.
 - The chrono supports the "lap" functionality.
+- Make the app much nicer than I ever could! 
 
 Note: the following code snippets shows an example of how to display the current date in the UK timezone:
 

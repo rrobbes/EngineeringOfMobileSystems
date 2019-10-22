@@ -1,12 +1,16 @@
 # Flashy Flash Cards
 
-This project is due on **Monday, November 11th**. To hand in the project, simply submit on OLE the URL of the github repository where your code is located. 
+This project is due on **Monday, November 11th**. To hand in the project, simply submit on OLE the URL of the github repository where your code is located. This assignment is one of 3 assignments for the course, which together constitute the project grade (50% of the final grade).
+
+### Context: Spaced Repetition
 
 Have you ever wondered why, after spending the whole night studying before an exam and then passing it, you quickly forget what you studied?
 
 This is because you are likely **not** using the best way to memorize large amounts of information. Studies in psychology show that the best way to learn knowledge is to use [Spaced Repetition](https://en.wikipedia.org/wiki/Spaced_repetition), due to the [Spacing Effect](https://en.wikipedia.org/wiki/Spacing_effect) identified by Ebbinghaus in the late 1800s, and observed in a variety of subsequent experiments.
 
 In short, research shows that information needs to be shown multiple times, with a separation in time, to be memorized in the long term. In practice, flash cards with regular practice work very well.
+
+### The Project
 
 The goal of this project is to develop a simplified mobile flash card application. A mobile application can better keep track of how well the information is memorized than physical flash cards can. 
 

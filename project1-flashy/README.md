@@ -19,7 +19,7 @@ import decks from './flashcards'
 This imports a list of decks of flash cards. Each deck has a name, and contains a list of flash cards: 
 
 ```javascript
-decks = {[
+decks = [
     {
         name: "Basic Javascript",
         cards: [...]
@@ -28,7 +28,7 @@ decks = {[
         name: "Advanced React",
         cards: [...]
     }
-}
+]
 ```
 
 Each card has a front and a back, such as:

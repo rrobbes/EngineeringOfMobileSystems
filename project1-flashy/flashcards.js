@@ -1041,5 +1041,6 @@ const decks = [
      {name: 'Advanced French', cards: frenchCards},
      {name: 'Genius-level math', cards: factorials},
 ]
-//export default decks
-console.log(factorials)
+
+export default decks
+

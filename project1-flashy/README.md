@@ -46,10 +46,12 @@ Each card has a front and a back, such as:
 When the app starts, the list of decks is shown. The user then picks a deck to learn the concepts in that deck. Each of the card in the deck is shown in sequence:
 - The front is shown. The user is asked to guess what the back is.
 - The user flips the card, and checks if their guess was correct, and indicates it, by pressing one of two buttons: `right` and `wrong`.
-- If the card was guessed wrong, it is removed from its spot, and placed in a deck of "correct" cards. The time taken to answer (before flipping the card) determines the index: the card for which it took the longest are first.
-- If the card was guessed right, it is removed from its spot, and is placed at the end of a deck of "incorrect" cards. The time taken to answer (before flipping the card) determines the index: the card for which it took the longest are first.
+- If the card was guessed `right`, it is removed from its spot, and placed in a (temporary) deck of "correct" cards. The time taken to answer (before flipping the card) determines the index: the card for which it took the longest are first.
+- If the card was guessed `wrong`, it is removed from its spot, and is placed at the end of a (temporary) deck of "incorrect" cards. The time taken to answer (before flipping the card) determines the index: the card for which it took the longest are first.
 - When all the cards in the deck have been viewed once, the user starts over on a new deck, which contains the same cards as the first deck, but in a different order. The cards that were guessed wrong come first, and the cards that were guessed right come last.
 - The user can restart the deck from the beginning at any time. Similar as above, the deck is rearranged: starting with the "wrong" cards, then the remaining cards, then the "right" cards.
+
+Note: I suggest implementing the `right` and `wrong` behavior first without measuring the time to answer, with the `right` or `wrong` card simply placed inside the "correct" and "incorrect" decks.
 
 The app also offers the following functionality:
 - Renaming of a deck of cards.

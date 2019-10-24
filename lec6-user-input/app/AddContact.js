@@ -12,9 +12,10 @@ const styles = StyleSheet.create({
 
 export default class AddContact extends React.Component {
 
+    // this is a shorthand way of writing a constructor when we only have state
     state = {
         name: '',
-        phone: '',
+        phone: '', 
         isValid: false
     }
 

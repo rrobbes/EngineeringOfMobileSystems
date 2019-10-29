@@ -11,6 +11,7 @@ If a component's constructor only sets up some state:
 ```javascript
 class MyComp extends React.Component {
     constructor(props) {
+        super(props)
         this.state = {foo: 42}
     }
 }

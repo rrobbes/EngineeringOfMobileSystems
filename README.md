@@ -20,5 +20,5 @@ Each subdirectory has a readme file which contains the actual notes, and possibl
 - Lab 2: [Counter madness](./lab2-counter-madness/)
 - Lecture 6: [User Input](./lec6-user-input/README.md) and [Contact List code so far](./lec6-user-input/app)
 - Lab 3: [It's time](./lab3-its-time/README.md)
-- **Assignment 1: [Flash Cards](./project1-flashy/README.md)**
+- **Assignment 1, DUE NOVEMBER 11: [Flash Cards](./project1-flashy/README.md)**
 - Lecture 7: [Odds and Ends](./lec7-odds-and-ends/README.md)

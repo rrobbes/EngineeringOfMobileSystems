@@ -1,5 +1,115 @@
 # Odds and Ends
 
+## Javascript shorthands
+
+Javascript has various ways to make code shorter. Some of them might not always be completely obvious. Some examples follow.
+
+### React component constructor
+
+If a component's constructor only sets up some state:
+
+```javascript
+class MyComp extends React.Component {
+    constructor(props) {
+        this.state = {foo: 42}
+    }
+}
+```
+
+This can be written more concisely as:
+
+```javascript
+class MyComp extends React.Component {
+    state = {foo: 42}
+}
+```
+
+### Destructuring assignments
+
+Javascript makes it easy to fetch the interesting parts of an object or a list:
+
+```javascript
+const myList = [1, 2, 3, 4, 5]
+const first = myList[0]
+const second = myList[1]
+const rest = myList.slice(2)
+```
+
+This is equivalent to:
+```javascript
+const myList = [1, 2, 3, 4, 5]
+const [first, second, ...rest] = myList
+```
+
+The same thing works for objects:
+```javascript
+const jim = {name: {first: 'james', second: 'bond'}, number: '007', cover: 'cook'}
+const firstname = jim.name.first
+const number = jim.number
+```
+
+Is equivalent to:
+```javascript
+const {name, number} = jim
+const firstname = name.first
+```
+
+Or even:
+```javascript
+const {name: {first}, number} = jim
+```
+
+### Destructuring parameters
+
+Destructuring also works for function parameters (objects and lists). For objects:
+
+```javascript
+const greet = person => {
+    const first = person.name.first
+    const last = person.name.last
+
+    return "the name is " + last + ", " + first + " " + last 
+}
+
+console.log(greet(jim))
+```
+
+`greet` can be written more concisely:
+
+```javascript
+const greet = ({name: {first, last}}) => {
+    return "the name is " + last + ", " + first + " " + last 
+}
+```
+
+For lists:
+
+```javascript
+const sum3 = list => {
+    const [first, second, third] = list
+    return first + second + third
+}
+
+// equivalent to:
+const sum3 = ([first, second, third]) => first + second + third
+```
+
+```javascript
+const head = list => {
+    const [first] = list
+    return first
+}
+
+const tail = list => {
+    const [first, ...rest] = list
+    return rest
+}
+
+//equivalent to
+const head = ([first]) => first
+const tail = ([first, ...rest]) => rest
+```
+
 ## Callbacks, this, and arrow functions
 
 It is not easy to understand the subtle differences between methods, function, and arrow functions. One big difference is the way the variable `this` is bound. Arrow functions use lexical scoping, while methods and functions use dynamic scoping. To understand the difference, try this example on [http://snack.expo.io]

@@ -37,7 +37,7 @@ To install the library in your application, execute the following commands in yo
 
 ```
 npm install react-navigation
-expo install rect-native-gesture-handler
+expo install react-native-gesture-handler
 expo install react-native-reanimated
 expo install react-native-screens
 ```
@@ -138,10 +138,6 @@ export default class RootComponent extends React.Component
     }
 }
 ```
-
-## Refactoring to use Screens
-
-Refactoring the code to use screens and navigators adds quite a bit of complexity to an app. However, this structure is how we can grow our application, and make it more complex over time. There will be a clear way to add new screens, without adding and managing new state in the app.
 
 ## Stack Navigator
 

@@ -42,6 +42,12 @@ expo install react-native-reanimated
 expo install react-native-screens
 ```
 
+For additional navigators, you need to install additional libraries, such as:
+```
+expo install react-navigation-stack
+expo install react-navigation-tabs
+```
+
 ## Major concepts in React Navigation
 
 A **navigator** is a component that implements a navigation pattern, such as switch-based, tab-based, or stack-based navigation. A switch navigation pattern replaces one screen with another. A tab-based navigation pattern shows a tab bar at the bottom of the screen, allowing the user to choose which component to display at anytime. A stack-based navigation pattern is similar to a switch-based navigation, but also allows backtracking in time.

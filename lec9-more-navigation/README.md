@@ -11,7 +11,7 @@ In terms of different screens we would like the application to have:
 - The app would also feature a login screen that is shown at the start.
 - While showing the main screen (the contact list), the app should also allow the option to go to a settings screen, where various other options could be shown.
 
-All in all, the app would have 5 different screens by the end. **The final version of the application after the refactoring is available in the (./contact-list-navigation) directory.**
+All in all, the app would have 5 different screens by the end. **The final version of the application after the refactoring is available in the [contact list navigation](./contact-list-navigation/) directory.**
 
 ## Screen components
 

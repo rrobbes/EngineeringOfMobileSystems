@@ -126,8 +126,10 @@ You may need these setting when playing video, for instance.
 
 
 ### Graphics
-[Svg](https://docs.expo.io/versions/v35.0.0/sdk/svg/): Define React Native components then render vector images.
-[GLView](https://docs.expo.io/versions/v35.0.0/sdk/gl-view/): A low-level API to render 3D views. Higher-level APIs use it:
+- [Svg](https://docs.expo.io/versions/v35.0.0/sdk/svg/): Define React Native components then render vector images.
+- [GLView](https://docs.expo.io/versions/v35.0.0/sdk/gl-view/): A low-level API to render 3D views. 
+
+GLView is very low level. Higher-level APIs use it, and might be better for most developers:
 - [Expo-Three](https://github.com/expo/expo-three) uses [three.js](https://threejs.org)
 - [Expo-Processing](https://github.com/expo/expo-processing) uses [Processing](http://processingjs.org)
 

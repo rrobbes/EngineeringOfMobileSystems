@@ -38,11 +38,11 @@ export class Compass extends React.Component {
           theta = Math.atan(-x/y)
           if (-x > 0 && y > 0) {
             // nothing
+          } else if (y > 0) {
+            theta += pi
+          } else {
+            theta += pi * 2
           }
-      } else if (y > 0) {
-        theta += pi
-      } else {
-        theta += pi * 2
       }
   
       return theta * (180 / pi)

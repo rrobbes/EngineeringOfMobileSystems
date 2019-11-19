@@ -65,8 +65,7 @@ Expo has many APIs in the SDK. Here are a few of the most useful ones.
 - [Magnetometer](https://docs.expo.io/versions/v35.0.0/sdk/magnetometer/): to measure the magnetic field.
 - [Pedometer](https://docs.expo.io/versions/v35.0.0/sdk/pedometer/): count the number of steps taken by the user (based on the previous sensors).
 - [DeviceMotion](https://docs.expo.io/versions/v35.0.0/sdk/devicemotion/): integrate several of the previous sensors in an easier to read output. Also provides higher-level information such as device orientation (portrait, landscape, upside down).
-
-[Orientation](https://docs.expo.io/versions/v35.0.0/sdk/screen-orientation/): Used to detect the device orientation and adjust the UI accordingly, such as switching from portrait to landscape mode.
+- [Orientation](https://docs.expo.io/versions/v35.0.0/sdk/screen-orientation/): Used to detect the device orientation and adjust the UI accordingly, such as switching from portrait to landscape mode.
 
 ### User Interaction
 - [Localization](https://docs.expo.io/versions/v35.0.0/sdk/localization/): translate your UI in various languages. Very useful in multilingual regions! 
@@ -79,6 +78,7 @@ Expo has many APIs in the SDK. Here are a few of the most useful ones.
 
 
 ### Battery
+
 [Battery](https://docs.expo.io/versions/v35.0.0/sdk/battery/): Check battery usage, and receive notifications via callbacks if battery is low. This can be used to adapt the behaviour of the app is battery is low.
 
 
@@ -102,18 +102,18 @@ Other apps may expose links, such as [lyft](https://developer.lyft.com/v1/docs/d
 
 
 ### Storage 
-[FileSystem](https://docs.expo.io/versions/v35.0.0/sdk/filesystem/): Access to the part of the filesystem local to the app, to read/write files.
-[SQLite](https://docs.expo.io/versions/v35.0.0/sdk/sqlite/): Use a local database for your app. 
+- [FileSystem](https://docs.expo.io/versions/v35.0.0/sdk/filesystem/): Access to the part of the filesystem local to the app, to read/write files.
+- [SQLite](https://docs.expo.io/versions/v35.0.0/sdk/sqlite/): Use a local database for your app. 
 
 ### Maps
-[MapView](https://docs.expo.io/versions/v35.0.0/sdk/map-view/): Show a map component, allowing you to specify locations, put pins of the maps, etc.
-[Location](https://docs.expo.io/versions/v35.0.0/sdk/location/): Get the device's location, and also allows to convert addresses from/to location with geocoding. Note that geocoding or reverse geocoding are battery-consuming operations.
+- [MapView](https://docs.expo.io/versions/v35.0.0/sdk/map-view/): Show a map component, allowing you to specify locations, put pins of the maps, etc.
+- [Location](https://docs.expo.io/versions/v35.0.0/sdk/location/): Get the device's location, and also allows to convert addresses from/to location with geocoding. Note that geocoding or reverse geocoding are battery-consuming operations.
 
 ### Camera
-[Camera](https://docs.expo.io/versions/v35.0.0/sdk/camera/): Accesses the device's camera, either through the camera app, or through a view that can be embedded in the app's view. 
-[ImageManipulator](https://docs.expo.io/versions/v35.0.0/sdk/imagemanipulator/): Provides (basic) image editing operations. 
-[ImagePicker](https://docs.expo.io/versions/v35.0.0/sdk/imagepicker/): Allows the user to pick an image through the camera roll, or to take a new picture.
-[Face detection](https://docs.expo.io/versions/v35.0.0/sdk/facedetector/): Uses a computer vision API to run face detection on an image. Can also detect whether a person is smiling or not.
+- [Camera](https://docs.expo.io/versions/v35.0.0/sdk/camera/): Accesses the device's camera, either through the camera app, or through a view that can be embedded in the app's view. 
+- [ImageManipulator](https://docs.expo.io/versions/v35.0.0/sdk/imagemanipulator/): Provides (basic) image editing operations. 
+- [ImagePicker](https://docs.expo.io/versions/v35.0.0/sdk/imagepicker/): Allows the user to pick an image through the camera roll, or to take a new picture.
+- [Face detection](https://docs.expo.io/versions/v35.0.0/sdk/facedetector/): Uses a computer vision API to run face detection on an image. Can also detect whether a person is smiling or not.
 
 ### Playback 
 [AV](https://docs.expo.io/versions/latest/sdk/av/): to play audio and video files. There are specific APIs for [Video](https://docs.expo.io/versions/latest/sdk/video/) and [Audio](https://docs.expo.io/versions/latest/sdk/audio/)
@@ -128,6 +128,7 @@ You may need these setting when playing video, for instance.
 ### Graphics
 - [Svg](https://docs.expo.io/versions/v35.0.0/sdk/svg/): Define React Native components then render vector images.
 - [GLView](https://docs.expo.io/versions/v35.0.0/sdk/gl-view/): A low-level API to render 3D views. 
+
 
 GLView is very low level. Higher-level APIs use it, and might be better for most developers:
 - [Expo-Three](https://github.com/expo/expo-three) uses [three.js](https://threejs.org)

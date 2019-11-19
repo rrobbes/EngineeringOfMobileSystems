@@ -41,6 +41,3 @@ For very active users, some controls can be provided to change:
 - the thickness of the line
 
 React Native Gesture Handler could be used for these controls.
-
-
-- Develop a simple app "running" game. The game randomly tells 

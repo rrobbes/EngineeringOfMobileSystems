@@ -81,7 +81,7 @@ console.log("ready to wait?")
 //withRecovery()
 //withArguments()
 //dontWaitForAll()
-//waitForAll()
+// waitForAll()
 // promiseRace()
 
 const withAwait = async () => {

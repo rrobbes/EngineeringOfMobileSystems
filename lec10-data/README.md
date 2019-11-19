@@ -235,6 +235,20 @@ export const fetchUsers = async () => {
 }
 ```
 
+After these changes, two files of the contact app, [contacts.js](./contacts.js) and [App.js](./App.js) have changed to implement fetching the contacts from a remote server.
+
+## Pagination
+
+In case you want to load a large amount of data (say, hundreds or thousands of users), you may not want to load all the data at once. An alternative is to use pagination, where you can load pages of data individually. This can be used to populate a list with the initial page of data, and defer loading of the other pages when it is truly needed.
+
+The FlatList components supports two props to enable pagination: `onEndReached`, which is called when the end of the list is reached, and is a good spot to load more data. In addition, `onEndReachedThreshold` is used to specify a threshold (in pixels) before reaching the actual end of the list, so that `onEndReached` is called ahead of time, making it less likely that the user has to wait for more data.
+
+An example of using these properties is available here:
+https://snack.expo.io/@mkpeak/react-native-flatlist-pagination-to-load-more-data-dynamically---infinite-list
+
+Furthermore, some libraries exist to make the process easier to implement:
+- [PaginatableList](https://ttt.studio/blog/paginatablelist-for-react-native/)
+
 # Handling Login
 
 The contacts app is not very secure: we have a login screen, but it directly logs us in, without any authentication. 
@@ -243,9 +257,11 @@ How can you know that a request comes from who they say they are? By agreeing on
 
 We can use a very simple authentication server (That has several glaring security issues! This is for illustration purposes only), and interact with it with HTTP requests.
 
-The server can tell us if a user with a given login exists, and then check whether the password is correct. This server will listen to HTTP requests on our development machine, on port 8000.
+The server can tell us if a user with a given login exists, and then check whether the password is correct. This server will listen to HTTP requests on our development machine, on port 8000. 
 
 It is not a good idea to transmit passwords in URLs, which is what we would do if we used the HTTP GET requests we were using previously. Instead we can use a POST HTTP request.
+
+The implementation of the authetication server is available in the [authServer](./authServer) directory. It can be started by using `npm start` in this directory.
 
 ## HTTP GET vs POST
 For GET, we can add parameters with the key and value scheme: `?param=foo&other=bar&..."`. We can use the documentation to know what the allowed parameters are
@@ -316,6 +332,8 @@ login = async () => {
     }
 }
 ```
+
+The final code of the application (and the server) are available below.
 
 ## Going farther
 

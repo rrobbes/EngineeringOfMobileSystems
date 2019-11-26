@@ -41,3 +41,8 @@ The additional features are:
 - **Map view**: An additional screen is added, that shows the same information as the list, but on a map of the area, with location markers that contains a description of the article, and that allow to navigate to the article.
 - **Compass**: For article in a list, display a "mini compass" that uses the device's location, the article's location, and the device's orientation to show the direction in which to go in order to arrive at the location of the article item.
 - **Match the picture**: the article list shows the main picture of the wikipedia page as a thumbnail. Further, the app allows to take a picture with the mobile phone's camera, and displays it right next to the original thumbnail. The intent is to allow a "game" where one should take a picture as similar as possible to the original one. These pictures should persist.
+
+## Handing in the project
+
+As earlier, the deliverable should be the address of a GitHub repository. **The Github repository should be used during development, particularly if you are in a team. This allows to fairly assess the contributions of the team members.**
+

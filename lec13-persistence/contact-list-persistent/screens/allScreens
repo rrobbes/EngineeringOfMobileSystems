@@ -1,0 +1,86 @@
+import React from 'react'
+import {View} from 'react-native'
+import AddContact from '../AddContact'
+import styles from '../style'
+
+
+const AddContactScreen = props => {
+    const onSubmit = contact => {
+        console.log(props.screenProps)
+        props.screenProps.addContact(contact)
+        props.navigation.navigate("ContactList")
+    } 
+
+    return (
+        <View style={styles.container}>
+            <AddContact onSubmit={onSubmit} />
+        </View>
+    )
+}
+
+AddContactScreen.navigationOptions = {title: "Add Contact"}
+
+
+export default AddContactScreenimport React from 'react'
+import {View} from 'react-native'
+import ContactDetails from '../ContactDetails'
+import styles from '../style'
+
+const ContactDetailScreen = props => (
+    <View style={styles.container}>
+        <ContactDetails 
+                contact={props.navigation.getParam("selectedContact")}
+                contacts={props.screenProps.contacts}
+                onSelect={contact => props.navigation.push("ContactDetails", {selectedContact: contact})}/>
+    </View>
+)
+
+ContactDetailScreen.navigationOptions = ({navigation }) => (
+    {title: navigation.getParam("selectedContact").name})
+
+
+export default ContactDetailScreenimport React from 'react'
+import {View, Button} from 'react-native'
+import ContactList from '../ContactList'
+import styles from '../style'
+
+const ContactListScreen = props => {
+    return (
+    <View  style={styles.container}>
+        <ContactList 
+            contacts={props.screenProps.contacts}
+            onSelect={contact => {
+                props.navigation.navigate("ContactDetails", {selectedContact: contact})
+                }}/>
+    </View>
+    )
+}
+
+ContactListScreen.navigationOptions = ({navigation}) => ({
+    title: "Contacts",
+    headerRight:  <Button 
+    title="Add Contact" 
+    onPress={() => navigation.navigate("AddContact")}/>
+})
+
+export default ContactListScreenimport React from 'react';
+import {View, Button} from 'react-native';
+import styles from '../style'
+
+const LoginScreen = props => (
+    <View style={styles.container}>
+        <Button title="press to login" onPress={() => props.navigation.navigate("Contacts")} />
+    </View>
+    )
+
+export default LoginScreenimport React from 'react'
+import {View, Text, Button} from 'react-native'
+import styles from '../style'
+
+const SettingsScreen = props => (
+    <View  style={styles.container}>
+        <Button title="Logout" onPress={() => props.navigation.navigate("Login")}/>
+    </View>)
+SettingsScreen.navigationOptions = {title: "Settings"}
+
+export default SettingsScreen

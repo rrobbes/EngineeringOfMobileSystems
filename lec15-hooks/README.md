@@ -1,6 +1,6 @@
 # React Hooks
 
-Hooks are a way to define components in React and React Native, that has been introduced very recently. Hooks are however growing in popularity very quickly, due to their improvements over the alternatives. Many libraries are adopting them in their latest versions, so it is very likely that developing applications with React will soon mean using hooks. The full documentation on hooks (is available here)[https://reactjs.org/docs/hooks-intro.html].
+Hooks are a way to define components in React and React Native, that has been introduced very recently. Hooks are however growing in popularity very quickly, due to their improvements over the alternatives. Many libraries are adopting them in their latest versions, so it is very likely that developing applications with React will soon mean using hooks. The full documentation on hooks [is available here](https://reactjs.org/docs/hooks-intro.html).
 
 ## Issues with class components
 In a nutshell, hooks are provided as a solution for some of the shortcomings of class-based components. Class-based components are important in React, as they allow several things that function-based components can not:

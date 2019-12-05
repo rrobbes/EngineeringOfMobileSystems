@@ -107,6 +107,8 @@ export const usePersistentState = (initial, key) => {
 }
 
 
+// see accompanying blog post:
+// https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 export const useInterval = (callback, delay) => {
   const savedCallback = useRef(()=>null);
 

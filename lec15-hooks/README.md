@@ -96,7 +96,8 @@ The rules that need to be followed are:
 
 The first rule deserves more explanation:
 ```javascript
-const MultiCounter = (props) => {
+const BuggyMultiCounter = (props) => {
+    // display the first counter, which can be increased 
     if (props.first) {
         const [count, setCount] = useState(1)
         increment = () => setCount(count + 1)
@@ -107,12 +108,13 @@ const MultiCounter = (props) => {
             </View>
         )
     } else {
+        // display the second counter, which can be decreased 
         const [count2, setCount2] = useState(2)
         decrement2 = () => setCount2(count2 - 1)
         return (
             <View>
                 <Text>{count2}</Text>
-                <Button title="--" onPress={decrement2}>
+                <Button title="--" onPress={decrement2}/>
             </View>
         )
     }
@@ -124,13 +126,15 @@ The solution is to always call all the hooks in the same order, like in the foll
 
 ```javascript
 const MultiCounter = (props) => {
-   
+    // get state of first counter
     const [count, setCount] = useState(1)
     increment = () => setCount(count + 1)
        
+    // get state of second counter
     const [count2, setCount2] = useState(2)
     decrement2 = () => setCount2(count2 - 1)
-         
+       
+    // conditionally render the first or the second
     return props.first?
         (<View>
                 <Text>{count}</Text>
@@ -190,6 +194,10 @@ const Counter = (props) => {
 ```
 
 See more on setState [here](https://reactjs.org/docs/hooks-state.html) and [here](https://reactjs.org/docs/hooks-reference.html#usestate) and a discussion on multiple versus single useState [here](https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
+
+## useState in the flashcard app
+
+Compare the previous version of the flash card application, [with class components](./flashcards-class-components.js), with the one [rewritted with the useState hook](./flashcards-hooks.js). You can see that the second one is much shorter, and the code is easier to follow as well.
 
 ## The useEffect hook
 
@@ -363,12 +371,14 @@ const AutoCounter = (props) => {
      )
 }
 ```
-
+## Custom hooks examples
 We can now reuse the "counter logic" in several react components. In the code examples, there are more examples of custom hooks:
 - A hook to fetch data from a webservice
 - A hook that caches the fetched data to avoid re-querying it
 - A hook to persist state
 - A hook to ease setting up and changing intervals
+
+The examples are available in the app [here](./hooks)
 
 Note that the last one is bit more subtle, as the setInterval API is not so aligned with hooks. Changing an interval can be a bit tricky. There is a full explanation of the `useInterval` hook [here](https://overreacted.io/making-setinterval-declarative-with-react-hooks/), by one of the main React contributors.
 

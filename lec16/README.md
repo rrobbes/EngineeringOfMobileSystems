@@ -64,6 +64,20 @@ Changes to props: some props change do not impact the component. But if they cha
 
 Unnecessarily changing props: from the other side: if there are no reason to change the props, don't change them to avoid re-renders. For instance, if you are creating a new object literal and passing it as a prop during render, you will re-render, even if the prop is not really changing. If a callback is an arrow function that is created at render time, it will be different each time. Similarly, if the style of a component is inline (not using StyleSheet), it will be considered as a new object, and may cause unnecessary re-renders.
 
+One quick way to notice if a component is re-rendering unexpectedly is to change its style at each render. For instance, we can give the component a random color or border each time it is rerendered:
+```javascript
+const colors = ["red", "green", "black", "yellow", "teal", "salmon", "turquoise", "orange", "white", "brown", "blue"]
+const rand = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min
+const randomColor = () => colors[rand(colors.length)]
+const randomWidth = () => rand(45, 15)
+const randomBorder = () => ({borderColor: randomColor(), borderWidth: randomWidth(), flex: 1})
+
+const ScreenTwo = props => (<View  style={randomBorder()}>
+    <Button title="1" onPress={() => props.navigation.navigate("RouteOne")} />
+   <Button title="3" onPress={() => props.navigation.navigate("RouteThree")} />
+      <Button title="back" onPress={() => props.navigation.goBack()} />
+  </View>)
+```
 
 The in-app development tools have a few useful options related to performance. First, the performance monitor shows the number of frames per second that the app displays. If it stays above 60 frames per second, there is no need to optimize anything. Only if it goes below it, should optimizations be considered. Remember to test your application on a variety of devices, including lower-end devices, to get a sense of the performance on all kinds of hardware (keeping in mind that development mode does reduce performance). The performance monitor also tells you how many views are in the current screen, and how many are visible.
 

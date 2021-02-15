@@ -86,7 +86,7 @@ A ScrollView that renders all the elements:
 ```javascript
 <ScrollView>
 {contacts.map(contact => <Contact {...contact}/>))}
-<ScrollView>
+</ScrollView>
 ```
 
 becomes

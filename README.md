@@ -1,5 +1,7 @@
 # EngineeringOfMobileSystems
 
+**This course is superseded by version 2, [available here](https://github.com/rrobbes/EngineeringOfMobileSystemsV2)**
+
 These are the notes and code for the class "Engineering of Mobile Systems". Feel free to clone this repository with:
 `git clone https://github.com/rrobbes/EngineeringOfMobileSystems.git`
 
